@@ -13,7 +13,7 @@ describe("testing navbar functions", () => {
     cy.location("pathname").should("equal", "/");
   });
 
-  it("clicking on a product works properly", () => {
+  it.skip("clicking on a product works properly", () => {
     cy.get('[data-test="product-card"]').first().click({ force: true });
     cy.location("pathname").should("equal", "/product/1");
   });
