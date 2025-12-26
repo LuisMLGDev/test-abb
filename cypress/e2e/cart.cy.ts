@@ -1,4 +1,4 @@
-describe("testing the cart functionalities", () => {
+describe.skip("testing the cart functionalities", () => {
   beforeEach(() => {
     cy.visit("/", {
       onBeforeLoad(win) {

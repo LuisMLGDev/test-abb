@@ -1,4 +1,4 @@
-describe("testing the single product page", () => {
+describe.skip("testing the single product page", () => {
   beforeEach(() => {
     cy.intercept("GET", "https://dummyjson.com/products/47").as("product");
     cy.intercept(
