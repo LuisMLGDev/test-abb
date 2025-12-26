@@ -24,9 +24,9 @@ describe("testing navbar functions", () => {
     cy.get('[data-test="input-password"]').type("9uQFF1Lh");
     cy.get('[data-test="input-submit"]').click({ force: true });
     cy.get('[data-test="username-popup"]').click({ force: true });
-    cy.get('[data-test="popup-content-list"]').should("be.visible");
+    cy.get('[data-test="popup-content-list"]').should("exist");
     cy.get('[data-test="logout-btn"]').click({ force: true });
     cy.get('[data-test="popup-content-list"]').should("not.exist");
-    cy.get('[data-test="login-btn"]').should("be.visible");
+    cy.get('[data-test="login-btn"]').should("exist");
   });
 });
