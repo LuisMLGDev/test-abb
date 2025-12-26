@@ -1,4 +1,4 @@
-```markdown
+
 # Shopify - DevOps Technical Assignment
 
 ![CI/CD Status](https://github.com/LuisMLGDev/test-abb/actions/workflows/ci-cd.yml/badge.svg)
@@ -109,6 +109,4 @@ This project is a dummy e-commerce application built using React, Tailwind CSS, 
 
 This project is part of a technical assignment. Original application code is licensed under the [MIT License](https://www.google.com/search?q=LICENSE).
 
-```
 
-```
