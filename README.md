@@ -1,52 +1,114 @@
-# Shopify - a simple eCommerce app
+```markdown
+# Shopify - DevOps Technical Assignment
 
-Welcome to my E-commerce App! This project is a dummy e-commerce application built using React, Tailwind CSS, Vite, TypeScript, and Redux Toolkit. It aims to showcase various features commonly found in e-commerce platforms, including a homepage, product listing page, cart functionality, and user-authenticated pages like account and wishlist.
+![CI/CD Status](https://github.com/LuisMLGDev/test-abb/actions/workflows/ci-cd.yml/badge.svg)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)
+![Security: Trivy](https://img.shields.io/badge/security-trivy-red)
 
-## Features
+This repository contains the solution for the **ABB DevOps Assignment**. The goal was to containerize a React eCommerce application and implement a secure, automated CI/CD pipeline using DevOps best practices.
 
-- **Homepage:** Introduce users to your e-commerce platform with attractive banners, featured products, and navigation options.
-- **Product Page:** Display a catalog of products with detailed information, including images, descriptions, and pricing.
-- **Cart:** Allow users to add products to their cart, view cart contents, and proceed to checkout.
-- **User Authentication:** Enable users to create accounts, log in, and access personalized features like wishlists and account settings.
-- **Wishlist:** Allow users to save products they're interested in for future reference.
+## 🚀 Deployment & DevOps Architecture
 
-## Technologies Used
+### Pipeline Workflow
+The solution implements a GitHub Actions pipeline that ensures code quality, security, and automated delivery.
 
-- **React:** A popular JavaScript library for building user interfaces.
-- **Tailwind CSS:** A utility-first CSS framework for building custom designs quickly.
-- **Vite:** A modern build tool that serves your code via native ES Module imports during development for faster performance.
-- **TypeScript:** A statically typed superset of JavaScript that enhances code quality and developer productivity.
-- **Redux Toolkit:** A simplified state management library for managing application state efficiently.
-- **Cypress:** A next-generation front-end testing tool designed for the modern web.
+```mermaid
+graph LR
+    Push[Push to Main] --> CI_Start
+    
+    subgraph CI ["Continuous Integration (CI)"]
+        direction TB
+        CI_Start(Install & Lint) --> CI_Build(Build & Test)
+        CI_Build --> Security{Trivy Scan}
+    end
+    
+    subgraph CD ["Continuous Delivery (CD)"]
+        direction TB
+        Security -- Pass --> DeployWeb[Deploy to GH Pages]
+        Security -- Pass --> DeployImg[Push Image to GHCR]
+    end
+    
+    Security -- Fail --> Stop[Stop Pipeline]
+    
+    %% Estilos corregidos con texto negro forzado para alto contraste
+    style Security fill:#ff9999,stroke:#333,stroke-width:2px,color:#000000
+    style CI fill:#e1f5fe,stroke:#01579b,stroke-dasharray: 5 5,color:#000000
+    style CD fill:#e8f5e9,stroke:#2e7d32,stroke-dasharray: 5 5,color:#000000
 
-## Getting Started
+```
 
-1. Clone this repository to your local machine.
-2. Install dependencies using `npm install` or `yarn install`.
-3. Start the development server using `npm run dev` or `yarn dev`.
-4. Open your browser and navigate to `http://localhost:5173` to view the application.
+### Architecture Decisions
 
-## Contributing
+| Component | Choice | Rationale & Benefits |
+| --- | --- | --- |
+| **CI/CD** | GitHub Actions | Native integration, zero-overhead setup, and immediate feedback loop. |
+| **Hosting** | GitHub Pages | Acts as the **Test Environment**. Perfect for SPA (Single Page Applications), cost-effective, and supports HTTPS automatically. |
+| **Container** | Docker Multi-stage | **Efficiency**: Separates build tools (Node) from runtime (Nginx) to minimize image size.<br>
 
-Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
+<br>**Security**: Runs Nginx Alpine to reduce attack surface. |
+| **Registry** | GHCR | Keeps artifacts close to the code. Images are versioned by commit SHA for traceability. |
+| **Security** | Trivy | Scans the final Docker image for OS/Library vulnerabilities (Critical severity blocks deployment). |
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/your-feature-name`).
-3. Make your changes and commit them (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature/your-feature-name`).
-5. Open a pull request.
+---
 
-## License
+## 🛠️ How to Run
 
-This project is licensed under the [MIT License](LICENSE).
+### Prerequisites
 
-## Acknowledgements
+* Docker & Docker Compose
+* Node.js (v20+) (Optional, for local non-docker dev)
 
-- Since this is a frontend only project, all the data have been collected from [DummyJSON](https://dummyjson.com/).
-- Special thanks to [Tailwind Labs](https://tailwindcss.com/) and [Redux Toolkit](https://redux-toolkit.js.org/) for their amazing tools and documentation.
+### Option A: Run with Docker (Recommended)
 
-## Contact
+This mirrors the production environment using the optimized Nginx image.
 
-For any inquiries or feedback, feel free to contact [me](mailto:alim1496@gmail.com).
+```bash
+# 1. Build and start the container
+docker compose up --build
 
-Happy coding! 🚀
+# 2. Access the application
+# Open http://localhost:8080
+
+```
+
+### Option B: Local Development
+
+To run the application using the local Node.js environment:
+
+```bash
+yarn install
+yarn dev
+
+```
+
+---
+
+## ✅ Verification Links
+
+Once the pipeline finishes successfully, you can verify the deployment here:
+
+* **Live Test Environment:** [https://luismlgdev.github.io/test-abb/](https://www.google.com/search?q=https://luismlgdev.github.io/test-abb/)
+* **Docker Registry:** `ghcr.io/luismlgdev/social-site-demo`
+* **Pipeline Logs:** [View Actions Tab](https://www.google.com/search?q=https://github.com/LuisMLGDev/test-abb/actions)
+
+---
+
+## 📦 Application Features
+
+*Based on the Simple React eCommerce application.*
+
+This project is a dummy e-commerce application built using React, Tailwind CSS, Vite, TypeScript, and Redux Toolkit.
+
+* **Homepage:** Banners, featured products, and navigation.
+* **Product Page:** Detailed information, images, and pricing.
+* **Cart:** Add products, view contents, and checkout simulation.
+* **User Simulation:** Login simulation for wishlist and account features.
+* **Testing:** End-to-End testing with **Cypress**.
+
+## 📄 License
+
+This project is part of a technical assignment. Original application code is licensed under the [MIT License](https://www.google.com/search?q=LICENSE).
+
+```
+
+```
