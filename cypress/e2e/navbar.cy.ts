@@ -5,17 +5,18 @@ describe("testing navbar functions", () => {
 
   it("clicking on products works properly", () => {
     cy.get('[data-test="main-products"]').click({ force: true });
-    cy.location("pathname").should("equal", "/products");
+    cy.location("pathname").should("contain", "/products");
   });
 
   it("clicking on products works properly", () => {
     cy.get('[data-test="main-logo"]').click({ force: true });
-    cy.location("pathname").should("equal", "/");
+    // Verify it goes back to root (which is /test-abb/)
+    cy.location("pathname").should("match", /\/test-abb\/?$/);
   });
 
   it.skip("clicking on a product works properly", () => {
     cy.get('[data-test="product-card"]').first().click({ force: true });
-    cy.location("pathname").should("equal", "/product/1");
+    cy.location("pathname").should("contain", "/product/1");
   });
 
   it("login & logout works properly", () => {
