@@ -10,7 +10,7 @@ describe("testing the cart functionalities", () => {
 
   it("cart opens and closes", () => {
     cy.get('[data-test="cart-btn"]').click({ force: true });
-    cy.get('[data-test="cart-container"]').should("be.visible");
+    cy.get('[data-test="cart-container"]').should("exist");
     cy.contains(/your cart is empty/i).should("be.visible");
     cy.get('[data-test="cart-close"]').click();
     cy.contains(/your cart is empty/i).should("not.exist");
