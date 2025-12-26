@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { emptyCart, setCartState } from "../redux/features/cartSlice";
 import CartRow from "./CartRow";
 import toast from "react-hot-toast";
+import emptyCartImg from "../assets/emptyCart.jpg";
 
 const Cart: FC = () => {
   const dispatch = useAppDispatch();
@@ -78,7 +79,7 @@ const Cart: FC = () => {
                 items.map((item) => <CartRow key={item.id} {...item} />)
               ) : (
                 <div className="flex flex-col justify-center items-center p-4">
-                  <img src="/emptyCart.jpg" alt="empty" className="w-40" />
+                  <img src={emptyCartImg} alt="empty" className="w-40" />
                   <p className="text-center text-xl my-2">Your cart is empty</p>
                 </div>
               )}

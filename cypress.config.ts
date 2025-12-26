@@ -2,7 +2,7 @@ import { defineConfig } from "cypress";
 
 export default defineConfig({
   e2e: {
-    baseUrl: "http://localhost:5173",
+    baseUrl: "http://localhost:5173/test-abb",
     // SOLUCIÓN: Resolución Full HD para que el banner no tape nada
     viewportWidth: 1920,
     viewportHeight: 1080,

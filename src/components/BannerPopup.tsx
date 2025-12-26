@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { updateBanner } from "../redux/features/homeSlice";
+import banner from "../assets/banner.jpg";
 
 const BannerPopup: FC = () => {
   const show = useAppSelector((state) => state.homeReducer.isBannerVisible);
@@ -10,13 +11,12 @@ const BannerPopup: FC = () => {
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 transition-opacity duration-300 ${
-        show ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
+      className={`fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 transition-opacity duration-300 ${show ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
     >
       <div className="relative">
         <img
-          src="/banner.jpg"
+          src={banner}
           alt="banner"
           className="w-[50vw] min-w-[300px] m-auto"
         />
