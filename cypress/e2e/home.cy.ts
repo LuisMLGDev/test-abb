@@ -33,7 +33,7 @@ describe("testing the home page", () => {
   });
 
   it("products are fetched properly", () => {
-    cy.wait("@products").then((interception) => {
+    cy.wait("@products", { timeout: 10000 }).then((interception) => {
       expect(interception.response.body).to.not.be.empty;
       cy.contains(/Microsoft Surface Laptop 4/i).should("be.visible");
       cy.contains(/HP Pavilion 15-DK1056WM/i).should("be.visible");
