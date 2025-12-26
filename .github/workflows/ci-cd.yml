@@ -96,7 +96,6 @@ jobs:
         with:
           context: .
           push: true
-          push: true
           # Using the lowercase environment variable to ensure push success
           tags: |
             ghcr.io/${{ env.REPO_OWNER }}/social-site-demo:latest
