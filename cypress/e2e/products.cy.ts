@@ -3,7 +3,7 @@ describe("testing the products page", () => {
     cy.intercept("GET", "https://dummyjson.com/products/categories").as(
       "categories"
     );
-    cy.intercept("GET", "https://dummyjson.com/products?limit=100").as(
+    cy.intercept("GET", "https://dummyjson.com/products?limit=500").as(
       "products"
     );
     cy.visit("/products");

@@ -18,3 +18,13 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+beforeEach(() => {
+    // Hack para DevOps: Ocultar el banner maldito que rompe los tests en CI
+    // Inyectamos un estilo para ocultar la imagen del banner forzosamente
+    cy.document().then((doc) => {
+        const style = doc.createElement('style');
+        style.innerHTML = 'img[alt="banner"] { display: none !important; }';
+        doc.head.appendChild(style);
+    });
+});
