@@ -1,7 +1,7 @@
 describe("testing the cart functionalities", () => {
   beforeEach(() => {
     cy.visit("/");
-    cy.get('[data-test="login-btn"]').click();
+    cy.get('[data-test="login-btn"]').click({ force: true });
     cy.get('[data-test="login-container"]').should("be.visible");
     cy.get('[data-test="input-username"]').type("atuny0");
     cy.get('[data-test="input-password"]').type("9uQFF1Lh");

@@ -24,6 +24,9 @@ dist-ssr
 *.sln
 *.sw?
 
-# Project Specifc
+
+# Cypress
+cypress/screenshots
+cypress/videos
 
 

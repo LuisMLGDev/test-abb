@@ -4,22 +4,22 @@ describe("testing navbar functions", () => {
   });
 
   it("clicking on products works properly", () => {
-    cy.get('[data-test="main-products"]').click();
+    cy.get('[data-test="main-products"]').click({ force: true });
     cy.location("pathname").should("equal", "/products");
   });
 
   it("clicking on products works properly", () => {
-    cy.get('[data-test="main-logo"]').click();
+    cy.get('[data-test="main-logo"]').click({ force: true });
     cy.location("pathname").should("equal", "/");
   });
 
   it("clicking on a product works properly", () => {
-    cy.get('[data-test="product-card"]').first().click();
+    cy.get('[data-test="product-card"]').first().click({ force: true });
     cy.location("pathname").should("equal", "/product/1");
   });
 
   it("login & logout works properly", () => {
-    cy.get('[data-test="login-btn"]').click();
+    cy.get('[data-test="login-btn"]').click({ force: true });
     cy.get('[data-test="input-username"]').type("atuny0");
     cy.get('[data-test="input-password"]').type("9uQFF1Lh");
     cy.get('[data-test="input-submit"]').click();

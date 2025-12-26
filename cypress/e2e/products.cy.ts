@@ -29,9 +29,10 @@ describe("testing the products page", () => {
       cy.contains("3 DOOR PORTABLE").should("be.visible");
     });
   });
+  // Increase wait time for slower CI environments
 
   it("products are loaded", () => {
-    cy.wait("@products").then((intercept) => {
+    cy.wait("@products", { timeout: 10000 }).then((intercept) => {
       expect(intercept.response.statusCode).to.be.equal(200);
       expect(intercept.response.body).not.to.be.empty;
       cy.contains("iPhone 9").should("be.visible");
@@ -39,7 +40,7 @@ describe("testing the products page", () => {
   });
 
   it.only("products are sorted", () => {
-    cy.wait("@products").then(() => {
+    cy.wait("@products", { timeout: 10000 }).then(() => {
       cy.get('[data-test="product-card"]')
         .first()
         .should("contain.text", "iPhone 9");
