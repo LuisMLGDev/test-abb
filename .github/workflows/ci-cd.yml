@@ -98,5 +98,5 @@ jobs:
           push: true
           # Using the lowercase environment variable to ensure push success
           tags: |
-            ghcr.io/${{ env.REPO_OWNER }}/social-site-demo:latest
-            ghcr.io/${{ env.REPO_OWNER }}/social-site-demo:${{ github.sha }}
+            ghcr.io/${{ env.REPO_OWNER }}/test-abb:latest
+            ghcr.io/${{ env.REPO_OWNER }}/test-abb:${{ github.sha }}
