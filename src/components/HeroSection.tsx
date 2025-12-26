@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import hero from "../assets/hero.png";
 
 const HeroSection: FC = () => {
   return (
@@ -27,7 +28,7 @@ const HeroSection: FC = () => {
           </div>
         </div>
         <div>
-          <img src="/hero.png" alt="hero" className="ml-auto" />
+          <img src={hero} alt="hero" className="ml-auto" />
         </div>
       </div>
     </div>

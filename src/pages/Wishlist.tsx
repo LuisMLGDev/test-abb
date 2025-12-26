@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { useAppSelector } from "../redux/hooks";
 import ProductList from "../components/ProductList";
+import emptyCart from "../assets/emptyCart.jpg";
 
 const Wishlist: FC = () => {
   const wishlist = useAppSelector((state) => state.productReducer.wishlist);
@@ -10,7 +11,7 @@ const Wishlist: FC = () => {
         <ProductList title="Your Wishlist" products={wishlist} />
       ) : (
         <div className="flex flex-col justify-center items-center p-8">
-          <img src="/emptyCart.jpg" className="w-60" alt="empty" />
+          <img src={emptyCart} className="w-60" alt="empty" />
           <p className="text-center text-xl font-semibold my-2 dark:text-white">
             Your wishlist is empty
           </p>
