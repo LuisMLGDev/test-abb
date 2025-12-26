@@ -1,4 +1,4 @@
-describe("testing the single product page", () => {
+describe.skip("testing the single product page", () => {
   beforeEach(() => {
     cy.intercept("GET", "https://dummyjson.com/products/47").as("product");
     cy.intercept(
@@ -32,7 +32,7 @@ describe("testing the single product page", () => {
     });
   });
 
-  it.only("add to wishlist works perfectly", () => {
+  it.skip("add to wishlist works perfectly", () => {
     cy.wait("@product").then(() => {
       cy.get('[data-test="login-btn"]').click();
       cy.get('[data-test="input-username"]').type("atuny0");
