@@ -21,6 +21,7 @@ const BannerPopup: FC = () => {
           className="w-[50vw] min-w-[300px] m-auto"
         />
         <button
+          data-test="banner-close-btn"
           onClick={() => {
             dispatch(updateBanner(false));
           }}
