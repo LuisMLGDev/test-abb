@@ -30,17 +30,20 @@ jobs:
       - name: Lint
         run: yarn lint
 
-      - name: Build
-        env:
-          VITE_BASE_PATH: /test-abb/
+      - name: Build for Cypress
         run: yarn build
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
           start: yarn preview --port 5173
-          wait-on: 'http://localhost:5173/test-abb/'
+          wait-on: 'http://localhost:5173/'
           wait-on-timeout: 60 # Robustness: Increased timeout to prevent false positives on slower runners
+        
+      - name: Build for GitHub Pages
+        env:
+          VITE_BASE_PATH: /test-abb/
+        run: yarn build
         
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
