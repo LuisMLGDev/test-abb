@@ -39,7 +39,7 @@ describe("testing the products page", () => {
     });
   });
 
-  it.only("products are sorted", () => {
+  it("products are sorted", () => {
     cy.wait("@products", { timeout: 10000 }).then(() => {
       // En lugar de buscar un texto exacto que cambia en la API,
       // verificamos que hay productos y que el filtro hace ALGO.
