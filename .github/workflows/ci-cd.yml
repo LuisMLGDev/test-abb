@@ -39,7 +39,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           start: yarn preview --port 5173
-          wait-on: 'http://localhost:5173'
+          wait-on: 'http://localhost:5173/test-abb/'
           wait-on-timeout: 60 # Robustness: Increased timeout to prevent false positives on slower runners
         
       - name: Upload Build Artifact
