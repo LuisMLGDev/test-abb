@@ -10,8 +10,8 @@ describe("testing navbar functions", () => {
 
   it("clicking on products works properly", () => {
     cy.get('[data-test="main-logo"]').click({ force: true });
-    // Verify it goes back to root (which is /test-abb/)
-    cy.location("pathname").should("match", /\/test-abb\/?$/);
+    // Verify it goes back to root
+    cy.location("pathname").should("match", /^\/$/);
   });
 
   it.skip("clicking on a product works properly", () => {
