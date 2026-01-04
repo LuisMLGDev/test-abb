@@ -56,29 +56,17 @@ graph LR
 ### Prerequisites
 
 * Docker & Docker Compose
-* Node.js (v20+) (Optional, for local non-docker dev)
 
-### Option A: Run with Docker (Recommended)
+### Run with Docker
 
-This mirrors the production environment using the optimized Nginx image.
+This uses the optimized multi-stage Dockerfile with Nginx to serve the production build.
 
 ```bash
 # 1. Build and start the container
 docker compose up --build
-
-# 2. Access the application
-# Open http://localhost:8080
-
 ```
 
-### Option B: Local Development
-
-To run the application using the local Node.js environment:
-
-```bash
-yarn install
-yarn dev
-```
+**2. Access the application at: [http://localhost:8080](http://localhost:8080)**
 
 ### Stopping Docker Containers
 

@@ -1,6 +1,9 @@
 # Build Stage
 FROM node:20-alpine as build
 WORKDIR /app
+# Accept build argument for base path (defaults to / for local development)
+ARG VITE_BASE_PATH=/
+ENV VITE_BASE_PATH=$VITE_BASE_PATH
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 COPY . .
