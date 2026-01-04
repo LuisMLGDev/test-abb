@@ -3,15 +3,14 @@ import { defineConfig } from "cypress";
 export default defineConfig({
   e2e: {
     baseUrl: "http://localhost:5173/test-abb",
-    // SOLUCIÓN: Resolución Full HD para que el banner no tape nada
+    // SOLUTION: Full HD resolution so the banner doesn't cover anything
     viewportWidth: 1920,
     viewportHeight: 1080,
-    // SOLUCIÓN: Más tiempo para que la red responda (Fix 'products' timeout)
+    // SOLUTION: More time for network response (Fix 'products' timeout)
     defaultCommandTimeout: 20000,
     requestTimeout: 20000,
     responseTimeout: 20000,
-    setupNodeEvents() {
-      // implement node event listeners here
+    setupNodeEvents() { // implement node event listeners here
     },
   },
 });

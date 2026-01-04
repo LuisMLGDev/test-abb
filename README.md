@@ -78,7 +78,18 @@ To run the application using the local Node.js environment:
 ```bash
 yarn install
 yarn dev
+```
 
+### Stopping Docker Containers
+
+To stop the running Docker containers:
+
+```bash
+# Stop and remove containers
+docker compose down
+
+# Stop containers without removing them
+docker compose stop
 ```
 
 ---
@@ -87,9 +98,9 @@ yarn dev
 
 Once the pipeline finishes successfully, you can verify the deployment here:
 
-* **Live Test Environment:** [https://luismlgdev.github.io/test-abb/](https://www.google.com/search?q=https://luismlgdev.github.io/test-abb/)
-* **Docker Registry:** `ghcr.io/luismlgdev/social-site-demo`
-* **Pipeline Logs:** [View Actions Tab](https://www.google.com/search?q=https://github.com/LuisMLGDev/test-abb/actions)
+* **Live Test Environment:** [https://luismlgdev.github.io/test-abb/](https://luismlgdev.github.io/test-abb/)
+* **Docker Registry:** `ghcr.io/luismlgdev/test-abb`
+* **Pipeline Logs:** [View Actions Tab](https://github.com/LuisMLGDev/test-abb/actions)
 
 ---
 

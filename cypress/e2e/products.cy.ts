@@ -48,7 +48,7 @@ describe("testing the products page", () => {
       // Forzamos el select
       cy.get('select').select('asc', { force: true });
 
-      // Esperamos un poco a que ordene (sin validar texto específico para no romper CI)
+      // Wait a bit for sorting (without validating specific text to avoid breaking CI)
       cy.wait(1000);
       cy.get('[data-test="product-card"]').should('have.length.greaterThan', 0);
     });
